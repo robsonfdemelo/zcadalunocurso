@@ -1,0 +1,82 @@
+<mvc:View xmlns:layout="sap.ui.layout" controllerName="zcadalunocurso.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:shelbar="sap.f"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:u="sap.ui.unified">
+    <Page id="page" title="{i18n>title}">
+        <customHeader>
+            <shelbar:ShellBar id="_IDGenShellBar1" title="Exed Consulting" showCopilot="false" showSearch="false" showMenuButton="false" showNotifications="false" homeIcon="../Imagens/logo.jpeg" showProductSwitcher="false" showNavButton="false" />
+        </customHeader>
+        <content>
+            <ObjectHeader id="_IDGenObjectHeader1" title="Colégio Fiorizando" icon="../Imagens/logo.jpeg" class="sapUiResponsivePadding--header">
+                <statuses>
+                    <ObjectStatus id="_IDGenObjectStatus1" text="Em desenvolvimento" state="Error" />
+                </statuses>
+                <ObjectAttribute id="_IDGenObjectAttribute1" text="Robson Ferreira de Melo - Aluno" active="false" />
+                <ObjectAttribute id="_IDGenObjectAttribute2" text="Francisco Mafra - Instrutor" active="false" />
+                <ObjectAttribute id="_IDGenObjectAttribute3" text="Ricardo Alcantara - Instrutor" active="false" />
+
+            </ObjectHeader>
+            <MultiInput id="idUserHelp" valueHelpRequest=".onValueHelpUser" width="60%" suggestionRows="{path: '/ZshHelpCursosRfmSet', length: 10 }">
+                <suggestionColumns>
+                    <Column id="_IDGenColumn1">
+                        <Label id="_IDGenLabel1" text="IdCurso"/>
+                    </Column>
+                    <Column id="_IDGenColumn2">
+                        <Label id="_IDGenLabel2" text="NomeCurso"/>
+                    </Column>
+                </suggestionColumns>
+                <suggestionRows>
+                    <ColumnListItem id="_IDGenColumnListItem2">
+                        <Label id="_IDGenLabel3" text="{IdCurso}" />
+                        <Label id="_IDGenLabel4" text="{NomeCurso}" />
+                    </ColumnListItem>
+                </suggestionRows>
+            </MultiInput>
+            <smartFilterBar:SmartFilterBar id="SF_CURSO" persistencyKey="UniqueAndStablePersistencyKey" entitySet="CadCursosSet">
+                <smartFilterBar:controlConfiguration>
+                    <smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration1" key="IdCurso" index="0" label="IdCurso" groupId="_BASIC" width="auto" visibleInAdvancedArea="true"/>
+                    <smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration2" key="NomeCurso" index="1" label="NomeCurso" groupId="_BASIC" width="auto" visibleInAdvancedArea="true" />
+                </smartFilterBar:controlConfiguration>
+            </smartFilterBar:SmartFilterBar>
+            <smartTable:SmartTable entitySet="CadCursosSet" smartFilterId="SF_CURSO" useVariantManagement="true" useTablePersonalisation="true" header="Cursos" showRowCount="true" showFullScreenButton="true" enableAutoBinding="true" requestAtLeastFields="IdCurso,NomeCurso,Duracao" initiallyVisibleFields="IdCurso,NomeCurso,Duracao" beforeRebindTable="onBeforeRebindTable" tableType="Table" id="SmartTable">
+                <smartTable:customToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbar1" design="Transparent">
+                        <OverflowToolbarButton id="btAdd" icon="sap-icon://add" press="onAdcionaCurso" />
+                        <OverflowToolbarButton id="btEdit" icon="sap-icon://edit" press="onEditCurso" />
+                        <OverflowToolbarButton id="btDelete" icon="sap-icon://delete" press="onDeletaCurso" />
+                        <Button type="Accept" text="CADASTRAR NOVO ALUNO" press="onAddAluno">
+                            <layoutData>
+                                <OverflowToolbarLayoutData priority="NeverOverflow" />
+                            </layoutData>
+                        </Button>
+
+                        <Button type="Accept" text="LISTA DE ALUNOS" press="listaAlunos">
+                            <layoutData>
+                                <OverflowToolbarLayoutData priority="NeverOverflow" />
+                            </layoutData>
+                        </Button>
+
+                    </OverflowToolbar>
+                </smartTable:customToolbar>
+                <Table id="idTable" growing="true" mode="MultiSelect">
+                    <ColumnListItem id="_IDGenColumnListItem1" highlight="Success" />
+                </Table>
+                <smartTable:layoutData>
+                    <FlexItemData id="_IDGenFlexItemData1" growFactor="1" baseSize="0%" />
+                </smartTable:layoutData>
+            </smartTable:SmartTable>
+        </content>
+        <footer>
+            <Toolbar id="idOverTollbar">
+                <Button press="handleMessagePopoverPress" text="Mensagens {Auxiliar>/Menssagens/length}" icon="sap-icon://message-popup" id="messagePopoverBtn" tooltip="Mensagens" visible="true" iconFirst="true" />
+                <ToolbarSpacer id="idToolbarSpacerD" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

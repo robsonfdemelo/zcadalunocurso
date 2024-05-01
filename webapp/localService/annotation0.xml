@@ -1,0 +1,33 @@
+<Annotations Target="ZG_TESTE_FINAL_EXED_SRV.CadCursos/IdCurso">
+    <Annotations Target="ZG_TESTE_FINAL_EXED_SRV.CadCursos/IdCurso"
+        xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+            <Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+
+                <PropertyValue Property="CollectionPath" String="ZshHelpCursosRfmSet"/>
+                <PropertyValue Property="SearchSupported" Bool="true"/>
+                <PropertyValue Property="Parameters">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                            <PropertyValue Property="LocalDataProperty" PropertyPath="IdCurso"/>
+                            <PropertyValue Property="ValueListProperty" String="IdCurso"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="NomeCurso"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                            <PropertyValue Property="ValueListProperty" String="Duracao"/>
+                        </Record>
+                    </Collection>
+                </PropertyValue>
+
+            </Record>
+        </Annotation>
+    </Annotations>
+    <Annotations Target="ZG_TESTE_FINAL_EXED_SRV.CadCursos"
+        xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="com.sap.vocabularies.Common.v1.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+    </Annotations>
+</Annotations>
+
+

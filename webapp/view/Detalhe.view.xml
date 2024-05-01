@@ -1,0 +1,48 @@
+<mvc:View xmlns:layout="sap.ui.layout" controllerName="zcadalunocurso.controller.Detalhe"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:shelbar="sap.f"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:u="sap.ui.unified">
+    <Page id="page" title="{i18n>title}">
+        <customHeader>
+            <shelbar:ShellBar id="_IDGenShellBar1" title="Exed Consulting" showCopilot="false" showSearch="false" showMenuButton="false" showNotifications="false" homeIcon="../Imagens/logo.jpeg" showProductSwitcher="false" showNavButton="true" navButtonPressed="navButtonPressed" />
+        </customHeader>
+        <content>
+            <ObjectHeader id="_IDGenObjectHeader1" title="{IdCurso}" icon="../Imagens/logo.jpeg" class="sapUiResponsivePadding--header" />
+            <f:Form class="editableForm" editable="true" id="Form">
+                <f:layout>
+                    <f:ResponsiveGridLayout id="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer id="FormContainer0">
+                        <f:formElements>
+                            <f:FormElement id="_IDGenFormElement1" label="IdCurso" visible="false">
+                                <Input width="100%" placeholder="IdCurso" value="{IdCurso}" editable="{Auxiliar>/editable}" id="IdCurso" />
+                            </f:FormElement>
+                            <f:FormElement id="_IDGenFormElement2" label="NomeCurso">
+                                <Input width="100%" placeholder="Nome" value="{NomeCurso}" editable="{Auxiliar>/editable}" id="NomeCurso" />
+                            </f:FormElement>
+                            <f:FormElement id="_IDGenFormElement3" label="Duracao">
+                                <Input width="100%" placeholder="Duracao" value="{Duracao}" editable="{Auxiliar>/editable}" id="Duracao" />
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+
+                </f:formContainers>
+            </f:Form>
+        </content>
+        <footer>
+            <Toolbar id="idOverTollbar">
+                <ToolbarSpacer id="idToolbarSpacerD" />
+                <Button id="_IDGenButton1" text="Editar" icon="sap-icon://edit" press="onEditaCurso" visible="{Auxiliar>/visibleEdit}"/>
+                <Button id="_IDGenButton2" text="Salvar" icon="sap-icon://save" press="onSalvaCurso" visible="{Auxiliar>/visibleSave}"/>
+                <Button id="_IDGenButton3" text="Cancelar" icon="sap-icon://cancel" press="onCancelaCurso" visible="{Auxiliar>/visibleSave}"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
